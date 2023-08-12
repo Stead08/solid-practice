@@ -1,4 +1,4 @@
-name: Cloudflare Pages
+name: Dev build test
 
 on:
   push:
