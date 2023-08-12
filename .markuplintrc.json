@@ -1,0 +1,3 @@
+{
+  "excludeFiles": ["./index.html", "./ignore.html", "./ignore/*.html", "!./ignore/no-ignore.html"]
+}
