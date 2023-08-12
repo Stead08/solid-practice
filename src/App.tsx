@@ -1,10 +1,11 @@
-import { createSignal } from 'solid-js'
-import solidLogo from './assets/solid.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { createSignal } from "solid-js";
+import solidLogo from "./assets/solid.svg";
+import viteLogo from "./assets/vite.svg";
+import "./App.scss";
 
+const add = (a: number, b: number) => a + b;
 function App() {
-  const [count, setCount] = createSignal(0)
+  const [count, setCount] = createSignal(0);
 
   return (
     <>
@@ -18,7 +19,7 @@ function App() {
       </div>
       <h1>Vite + Solid</h1>
       <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => setCount((count) => add(count, 1))}>
           count is {count()}
         </button>
         <p>
@@ -29,7 +30,17 @@ function App() {
         Click on the Vite and Solid logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+
+// in-source test suites
+
+if (import.meta.vitest) {
+  const { it, expect } = import.meta.vitest;
+  it ('add', () => {
+    expect(add(1, 2)).toBe(3)
+    expect(add(-2, 2)).toBe(0)
+  })
+}
