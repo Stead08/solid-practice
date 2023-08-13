@@ -1,46 +1,69 @@
-import { createSignal } from "solid-js";
-import solidLogo from "./assets/solid.svg";
-import viteLogo from "./assets/vite.svg";
+import { batch, createSignal, For } from "solid-js";
 import "./App.scss";
+import { createLocalStore, removeIndex } from "./utils.tsx";
 
-const add = (a: number, b: number) => a + b;
+interface TodoItem {
+  title: string;
+  done: boolean;
+}
 function App() {
-  const [count, setCount] = createSignal(0);
+  const [newTitle, setTitle] = createSignal("");
+  const [todos, setTodos] = createLocalStore<TodoItem[]>("todos", []);
+  const addTodo = (e: SubmitEvent) => {
+    e.preventDefault();
+    batch(() => {
+      setTodos(todos.length, {
+        title: newTitle(),
+        done: false
+      });
+      setTitle("");
+    });
+  };
 
+  const removeTodo = (i: number) => {
+    setTodos(todos => removeIndex(todos, i));
+  };
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://solidjs.com" target="_blank">
-          <img src={solidLogo} class="logo solid" alt="Solid logo" />
-        </a>
-      </div>
-      <h1>Vite + Solid</h1>
-      <div class="card">
-        <button onClick={() => setCount((count) => add(count, 1))}>
-          count is {count()}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p class="read-the-docs">
-        Click on the Vite and Solid logos to learn more
-      </p>
+      <h3>Simple Todos Example</h3>
+      <form onSubmit={addTodo}>
+        <input
+          placeholder="enter todo and click +"
+          required
+          value={newTitle()}
+          onInput={e => setTitle(e.currentTarget.value)}
+        />
+        <button>+</button>
+      </form>
+      <For each={todos}>
+        {(todo, i) => (
+          <div>
+            <input
+              type="checkbox"
+              checked={todo.done}
+              onChange={e => {
+                setTodos(i(), "done", e.currentTarget.checked);
+              }}
+            />
+            <input
+              type="text"
+              value={todo.title}
+              onChange={e => {
+                setTodos(i(), "title", e.currentTarget.value);
+              }}
+            />
+            <button
+              onClick={() => {
+                removeTodo(i());
+              }}
+            >
+              x
+            </button>
+          </div>
+        )}
+      </For>
     </>
   );
 }
 
 export default App;
-
-// in-source test suites
-
-if (import.meta.vitest) {
-  const { it, expect } = import.meta.vitest;
-  it ('add', () => {
-    expect(add(1, 2)).toBe(3)
-    expect(add(-2, 2)).toBe(0)
-  })
-}
