@@ -40,9 +40,6 @@ devDependencies:
   eslint-plugin-solid:
     specifier: ^0.12.1
     version: 0.12.1(eslint@8.47.0)(typescript@5.1.6)
-  happy-dom:
-    specifier: ^10.9.0
-    version: 10.9.0
   jsdom:
     specifier: ^22.1.0
     version: 22.1.0
@@ -63,7 +60,7 @@ devDependencies:
     version: 2.7.0(solid-js@1.7.11)(vite@4.4.9)
   vitest:
     specifier: ^0.34.1
-    version: 0.34.1(happy-dom@10.9.0)(jsdom@22.1.0)(sass@1.65.1)
+    version: 0.34.1(jsdom@22.1.0)(sass@1.65.1)
 
 packages:
   /@aashutoshrathi/word-wrap@1.2.6:
@@ -2205,7 +2202,7 @@ packages:
     engines: { node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7 }
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001520
+      caniuse-lite: 1.0.30001519
       electron-to-chromium: 1.4.490
       node-releases: 2.0.13
       update-browserslist-db: 1.0.11(browserslist@4.21.10)
@@ -2266,10 +2263,10 @@ packages:
     engines: { node: ">=6" }
     dev: true
 
-  /caniuse-lite@1.0.30001520:
+  /caniuse-lite@1.0.30001519:
     resolution:
       {
-        integrity: sha512-tahF5O9EiiTzwTUqAeFjIZbn4Dnqxzz7ktrgGlMYNLH43Ul26IgTMH/zvL3DG0lZxBYnlT04axvInszUsZULdA==
+        integrity: sha512-0QHgqR+Jv4bxHMp8kZ1Kn8CH55OikjKJ6JmKkZYP1F3D7w+lnFXF70nG5eNfsZS89jadi5Ywy5UCSKLAglIRkg==
       }
     dev: true
 
@@ -3752,7 +3749,7 @@ packages:
       foreground-child: 3.1.1
       jackspeak: 2.2.3
       minimatch: 9.0.3
-      minipass: 7.0.3
+      minipass: 7.0.2
       path-scurry: 1.10.1
     dev: true
 
@@ -3873,20 +3870,6 @@ packages:
       kind-of: 6.0.3
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
-    dev: true
-
-  /happy-dom@10.9.0:
-    resolution:
-      {
-        integrity: sha512-SGZ8QqSNDVkWt5T7GNACKS+CpGvr58OKurqCR1iH371dMgpXyUI2tJA91cASG6fe2d5xYnVFOgOwx4MmOaXepw==
-      }
-    dependencies:
-      css.escape: 1.5.1
-      entities: 4.5.0
-      iconv-lite: 0.6.3
-      webidl-conversions: 7.0.0
-      whatwg-encoding: 2.0.0
-      whatwg-mimetype: 3.0.0
     dev: true
 
   /hard-rejection@2.1.0:
@@ -5165,10 +5148,10 @@ packages:
       }
     dev: true
 
-  /minipass@7.0.3:
+  /minipass@7.0.2:
     resolution:
       {
-        integrity: sha512-LhbbwCfz3vsb12j/WkWQPZfKTsgqIe1Nf/ti1pKjYESGLHIVjWU96G9/ljLH4F9mWNVhlQOm0VySdAWzf05dpg==
+        integrity: sha512-eL79dXrE1q9dBbDCLg7xfn/vl7MS4F1gvJAgjJrQli/jbQWdUttuVawphqpffoIYfRdq78LHx6GP4bU/EQ2ATA==
       }
     engines: { node: ">=16 || 14 >=14.17" }
     dev: true
@@ -5604,7 +5587,7 @@ packages:
     engines: { node: ">=16 || 14 >=14.17" }
     dependencies:
       lru-cache: 10.0.1
-      minipass: 7.0.3
+      minipass: 7.0.2
     dev: true
 
   /path-type@4.0.0:
@@ -6880,7 +6863,7 @@ packages:
       vite: 4.4.9(@types/node@20.4.10)(sass@1.65.1)
     dev: true
 
-  /vitest@0.34.1(happy-dom@10.9.0)(jsdom@22.1.0)(sass@1.65.1):
+  /vitest@0.34.1(jsdom@22.1.0)(sass@1.65.1):
     resolution:
       {
         integrity: sha512-G1PzuBEq9A75XSU88yO5G4vPT20UovbC/2osB2KEuV/FisSIIsw7m5y2xMdB7RsAGHAfg2lPmp2qKr3KWliVlQ==
@@ -6927,7 +6910,6 @@ packages:
       cac: 6.7.14
       chai: 4.3.7
       debug: 4.3.4
-      happy-dom: 10.9.0
       jsdom: 22.1.0
       local-pkg: 0.4.3
       magic-string: 0.30.2
