@@ -1,6 +1,5 @@
-
-import { defineConfig } from 'vitest/config'
-import solid from 'vite-plugin-solid'
+import { defineConfig } from "vitest/config";
+import solid from "vite-plugin-solid";
 
 export default defineConfig({
   plugins: [solid()],
@@ -9,8 +8,8 @@ export default defineConfig({
   // +   'import.meta.vitest': 'undefined',
   // + },
   test: {
-    environment: 'jsdom',
+    environment: "jsdom",
     globals: true,
-    includeSource: ['src/**/*.ts', 'src/**/*.tsx']
+    includeSource: ["src/**/*.ts", "src/**/*.tsx"]
   }
-})
+});
