@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "prettier": "prettier --write .",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "lint:html": "markuplint \"**/*.html\"",
     "test": "vitest"
@@ -25,6 +26,7 @@
     "eslint-plugin-n": "^16.0.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-solid": "^0.12.1",
+    "happy-dom": "^10.9.0",
     "jsdom": "^22.1.0",
     "markuplint": "^3.12.0",
     "sass": "^1.65.1",
